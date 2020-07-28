@@ -23,22 +23,23 @@ touch Procfile
 
 # Add this
 web: gunicorn app:app
-Create requirements.txt
+### Create requirements.txt
 pip freeze > requirements.txt
-Create runtime.txt
+### Create runtime.txt
 touch runtime.txt
 
 # Add this
 python-3.7.2
-Deploy with Git
-git init
-git add . && git commit -m 'Deploy'
-heroku git:remote -a appname
-git push heroku master
-Add table to remote database
-heroku run python
->>> from app import db
->>> db.create_all()
->>>exit()
-Visit app
+
+### Deploy with Git
+git init<br>
+git add . && git commit -m 'Deploy'<br>
+heroku git:remote -a appname<br>
+git push heroku master<br>
+### Add table to remote database
+heroku run python<br>
+>>> from app import db<br>
+>>> db.create_all()<br>
+>>>exit()<br>
+### Visit app
 heroku open
