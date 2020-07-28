@@ -1,20 +1,44 @@
-# Python Feedback App
+Python Heroku Deployment
+Steps to create a postgres database and deply a Python app to Heroku
 
-> Python Flask Feedback app that sends data to Postgres database and emails user
+Install guinicorn locally
+pipenv install gunicorn
+or
+pip install gunicorn
+Install Heroku CLI
+https://devcenter.heroku.com/articles/heroku-cli
 
-## Quick Start
+Login via CLI
+heroku login
+Create app
+heroku create appname
+Create database
+heroku addons:create heroku-postgresql:hobby-dev --app appname
+Get URI
+heroku config --app appname
 
-```bash
-# Add your DATABASE URI in app.py and your mail params in send_mail.py
+# Add to your app
+Create Procfile
+touch Procfile
 
-# Install dependencies
-pipenv shell
-pipenv install
+# Add this
+web: gunicorn app:app
+Create requirements.txt
+pip freeze > requirements.txt
+Create runtime.txt
+touch runtime.txt
 
-# Serve on localhost:5000
-python app.py
-```
-
-### Heroku Deployment Steps
-
-https://gist.github.com/bradtraversy/0029d655269c8a972df726ed0ac56b88
+# Add this
+python-3.7.2
+Deploy with Git
+git init
+git add . && git commit -m 'Deploy'
+heroku git:remote -a appname
+git push heroku master
+Add table to remote database
+heroku run python
+>>> from app import db
+>>> db.create_all()
+>>>exit()
+Visit app
+heroku open
