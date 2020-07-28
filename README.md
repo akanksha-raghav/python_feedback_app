@@ -1,20 +1,20 @@
-Python Heroku Deployment
+## Python Heroku Deployment
 Steps to create a postgres database and deply a Python app to Heroku
 
-Install guinicorn locally
-pipenv install gunicorn
-or
-pip install gunicorn
-Install Heroku CLI
+### Install guinicorn locally
+pipenv install gunicorn<br>
+or<br>
+pip install gunicorn<br>
+### Install Heroku CLI
 https://devcenter.heroku.com/articles/heroku-cli
 
-Login via CLI
+### Login via CLI
 heroku login
-Create app
+### Create app
 heroku create appname
-Create database
+### Create database
 heroku addons:create heroku-postgresql:hobby-dev --app appname
-Get URI
+### Get URI
 heroku config --app appname
 
 # Add to your app
