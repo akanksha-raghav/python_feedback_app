@@ -1,6 +1,8 @@
 ## Python Heroku Deployment
 Steps to create a postgres database and deply a Python app to Heroku
 
+Clone this repo using <br>
+$git clone https://github.com/akanksha-raghav/python_feedback_app/
 ### Install guinicorn locally
 pipenv install gunicorn<br>
 or<br>
